@@ -51,7 +51,7 @@ const keyHandler = (e) => {
     switch (e.key) {
         case "Escape":
             closeModal()
-            break;
+            break
         case "ArrowRight":
             indexImg++
             if (indexImg >= data.length) indexImg = 0
@@ -68,5 +68,5 @@ const keyHandler = (e) => {
 document.querySelector(".js-gallery").addEventListener("click", checker)
 document.querySelector(".lightbox__overlay").addEventListener("click", closeModal)
 document.querySelector(`button[data-action="close-lightbox"]`).addEventListener("click", closeModal)
-window.addEventListener("keydown", keyHandler)
+window.addEventListener("keydown", _.throttle(keyHandler, 100))
 document.querySelectorAll(`.gallery__link`).forEach((e) => e.addEventListener("click", (e) => e.preventDefault()))
